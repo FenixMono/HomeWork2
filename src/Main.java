@@ -1,17 +1,85 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
+    public final static int ID=1020001; //для третього пункту ДЗ
+    public final static int SUM=100000; //для третього пункту ДЗ
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        // Перший розділ домашки
+        byte a1 = 127; // від -128 до 127
+        byte a2 = -128; // від -128 до 127
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
+        short b = 0; // від -32768 до 32767
+
+        int c = 11; // тут вже можна не писати діапазон я думаю
+
+        long d = 155; // також можна не писати коментар
+
+        float fl = (float) -1.1; // або через додавання 'f' в кінці значення
+        double db = 111.2222; // no comments
+
+        char r = '\u2708' ; // виведе літак як символ
+        boolean treu = false; // така собі змінна, бо назвати її як "true" в такому випадку не можна (логічне обмеження від системи)
+        System.out.println(r + " - це символ літака"); // з усього масиву нам цікавий для виведення буде тільки "літачок"
+
+
+        // Другий розділ домашки
+
+        // Арифметика
+        System.out.println(c/fl + " - ділення int на float"); // ділення int на float
+        System.out.println(a1+a2 + " - байт + байт"); // байт + байт
+        System.out.println(db-fl + " - double мінус float"); // double - float
+        System.out.println(b*d + " - short * long"); // short * long
+        System.out.println(c % fl == 0); // тут цікаво, бо має бути ІСТИНА - результат ділення буде без залишку
+        // UPD: знайшов, що % працює тільки з цілими числами, тому ми отримали false як помилку компіляції
+
+        // Інкремент і декремент
+        System.out.println(++fl + " - fl + 1"); //префіксний інкремент (постфіксний буде fl++ )
+        System.out.println(--db + " - db - 1"); //префіксний декремент (постфіксний буде db-- )
+
+        //Логічні вирази І, АБО, НЕ (&&, ||, !)
+        if (b != 0 && a2 / b > 1) {
+            System.out.println("а2 більший b");
+        } else {
+            System.out.println("На нуль ділити не можна!");
+        } // В такому випадку у нас відпрацює першою умова про не дорівнює нулю і ми не отримаємо помилку про неможливість ділення на 0 від системи, бо друга умова вже не перевірятиметься
+        // За бітвайс писати не буду. Логіка зрозуміла і на цьому достатньо.
+
+
+        // Третій розділ домашки
+        System.out.println(getInfo()); // це вставив тут щоб відобразити результат від іншого методу (для 3-го пункту ДЗ)
+
+        // Четвертий розділ вніс сюди також (в середину Main), інакше сканер не запускається
+        String scannerResult = Scanner1(); // Виклик методу для отримання результату введення числа
+        System.out.println(scannerResult); // Виведення результату на консоль
+    }
+
+    // Задача: Для клієнтів які мають ід в проміжку від ID (значення за змовчуванням для періоду) до 103000 (включно) або клієнт має відкритий...
+    //...рахунок ФОП, то вивести текст про можливість збільшення кредитного ліміту на дозволений розмір SUM (значення за змовчуванням для періоду) в грн.
+    // Інакше - вивести інформацію що клієнт не потрапив у вибірку
+
+    public static String getInfo() {
+        int username = 1030000;
+        boolean isFOP = false;
+        if ((username >= ID && username <= 1030000) || isFOP) {
+            return("Можна збільшити кредитний ліміт на "+SUM+" грн");
+        } else {
+            return("Не потрапив в вибірку. Кредитний ліміт не підвищуємо");
         }
+    }
+
+    // Четвертий розділ домашки. Але мені не вистачає в цьому всьому масиві даних, які повертаються повідомлення, що сканер працює і можна вписати число
+    // тому я додав рядок з повідомленням для введення значення, бо не впевнений що так правильно
+    public static String Scanner1 () {
+        Scanner scanner = new Scanner(System.in);
+
+                System.out.println("Введіть ціле число: ");
+                int ft = scanner.nextInt();
+
+                if (ft % 2 == 0) {
+                    return("Число ПАРНЕ");
+                } else {
+                    return("Число НЕПАРНЕ");
+                }
     }
 }
