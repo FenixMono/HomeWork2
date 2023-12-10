@@ -61,7 +61,7 @@ public class Main {
     public static String getInfo() {
         int username = 1030000;
         boolean isFOP = false;
-        if ((username >= ID && username <= 1030000) || isFOP) {
+        if ((username >= ID && username <= 1030000) || isFOP == true) {
             return("Можна збільшити кредитний ліміт на "+SUM+" грн");
         } else {
             return("Не потрапив в вибірку. Кредитний ліміт не підвищуємо");
