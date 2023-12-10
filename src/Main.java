@@ -27,7 +27,7 @@ public class Main {
         }
 
 //        //Перший розділ ДЗ:
-//        Scanner scanner = new Scanner(System.in);
+      Scanner scanner = new Scanner(System.in);
 
 //        // Задаємо розмір масиву
 //        System.out.println("Введіть розмір масиву:");
